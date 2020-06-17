@@ -22,19 +22,27 @@
             <div id="display-word"></div>
             <div id="help"></div>
         </div>
+        <div id="question-field"></div>
+
         <div id="answer-section">
             <form id="answer-form">
-                <div id="question"></div>
                 <label for="answer"></label>
-                <input type="text" id="answer" name="answer" placeholder="type response here (max 10 words)">
-                <input type="submit" value="Rep">
+                <input type="text" id="answer" name="answer" placeholder="type response here (max 70 chars)" maxlength="70">
+                <input type="submit" value="Submit" id="submit">
             </form>
         </div>
         <div id="set-list">
             <h4>Set List</h4>
-            <ol id="set-answers">
-
-            </ol>
+            <table id="set-answers">
+                <thead>
+                    <tr>
+                        <th id="rep-head">Rep #</th>
+                        <th id="response-head">Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
             <button type="button" id="finish-set">Finish Set</button>
         </div>
     </main>

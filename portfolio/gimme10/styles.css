@@ -27,3 +27,15 @@ div {
 #answer {
     width: 70%;
 }
+
+thead {
+    width: 80%;
+}
+
+#response-head {
+    width: 80%;
+}
+
+td {
+    text-align: left;
+}

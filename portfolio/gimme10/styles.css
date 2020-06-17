@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+div {
+    border: 1px solid blue;
+}
+
+#page1-head {
+    text-align: center;
+} 
+
+#tag-line {
+    font-size: 16px;
+    line-height: 0px;
+}
+
+#intro-heading {
+    text-align: center;
+}
+
+#intro {
+    text-align: justify;
+}

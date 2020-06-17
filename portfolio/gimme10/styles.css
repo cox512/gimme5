@@ -23,3 +23,7 @@ div {
 #intro {
     text-align: justify;
 }
+
+#answer {
+    width: 70%;
+}

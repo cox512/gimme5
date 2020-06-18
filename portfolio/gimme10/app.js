@@ -37,6 +37,8 @@ $(() => {
     const getWord = $("#get-word").on('click', () => {
         displayWord();
         pickFirstQuestion();
+        $('#answer-section').show();
+        $('#set-list').show();
     })
 
     let repNum = 0;
@@ -110,12 +112,12 @@ $(() => {
     const openModalOne = () => {
         setOneModal.show();
     }
-    //create a function to close the modal
-    const closeModalOne = () => {
-        setOneModal.hide();
-    }
-    //set the close modal event listener
-    closeBtn.on('click', closeModalOne);
+    // //create a function to close the modal
+    // const closeModalOne = () => {
+    //     setOneModal.hide();
+    // }
+    // //set the close modal event listener
+    // closeBtn.on('click', closeModalOne);
     
     //set event listener on the Submit button so moves the answer to the list
     $('#submit').on('click', addAnswer);

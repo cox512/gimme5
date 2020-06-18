@@ -36,6 +36,10 @@ thead {
     width: 80%;
 }
 
+#answer-section, #set-list {
+    display: none;
+}
+
 td {
     text-align: left;
 }

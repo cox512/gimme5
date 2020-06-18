@@ -39,3 +39,7 @@ thead {
 td {
     text-align: left;
 }
+
+#set-answers {
+    margin-bottom: 20px;
+}

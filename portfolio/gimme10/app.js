@@ -72,6 +72,23 @@ $(() => {
         }
     }
 
+    const storeRep = () => {
+        //console.log("button works");
+        localStorage.setItem('set1-answers', $('.answer')[repNum].innerHTML);
+        //console.log($('.answer')[0].innerHTML);
+        storageCheck();
+    }
+
+        //Create an array to hold all the answers to set one
+    let setOne = [];
+    const storageCheck = () => {
+        if(localStorage.getItem('set1-answers')) {
+            //console.log('set1-answers exists')
+            setOne.push(localStorage.getItem('set1-answers'));
+        }
+        console.log(setOne);
+    }
+
     const clearText= () => {
         $('#answer-field').val('');
     }
@@ -82,26 +99,25 @@ $(() => {
         setSubmitBtn.attr('id', 'submit-set');
         setSubmitBtn.text('Submit Set');
         $('#set-list').append(setSubmitBtn);
-        //$('#submit-set').on('click', setOneStorage);
+        //set the open modal even listener
+        $('#submit-set').on('click', openModalOne);
     }
+
+    //create a variable for the Set One Modal and the exit button,
+    const setOneModal = $('#save-modal');
+    const closeBtn = $('#exit');
+    //create a function to show the modal
+    const openModalOne = () => {
+        setOneModal.show();
+    }
+    //create a function to close the modal
+    const closeModalOne = () => {
+        setOneModal.hide();
+    }
+    //set the close modal event listener
+    closeBtn.on('click', closeModalOne);
     
-    const storeRep = () => {
-        //console.log("button works");
-        localStorage.setItem('set1-answers', $('.answer')[repNum].innerHTML);
-        //console.log($('.answer')[0].innerHTML);
-        storageCheck();
-    }
-
-    let setOne = [];
-    const storageCheck = () => {
-        if(localStorage.getItem('set1-answers')) {
-            console.log('set1-answers exists')
-            setOne.push(localStorage.getItem('set1-answers'));
-        }
-        console.log(setOne);
-
-    }
-
+    //set event listener on the Submit button so moves the answer to the list
     $('#submit').on('click', addAnswer);
 
     // //Experimenting with localStorage

@@ -66,6 +66,10 @@ td {
     margin: 100px auto;
 }
 
+#character-page {
+    display: none;
+}
+
 /* #exit {
     left: 2em;
     bottom: 2em;

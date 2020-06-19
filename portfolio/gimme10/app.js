@@ -34,6 +34,7 @@ $(() => {
         //console.log(roundOneQuestion[randomNumber]);
     }
 
+    //diplay the word and definition and pair it with a question.
     const getWord = $("#get-word").on('click', () => {
         displayWord();
         pickFirstQuestion();
@@ -41,65 +42,54 @@ $(() => {
         $('#set-list').show();
     })
 
+    //Add the user's response to a list and store those responses in local storage (storeReps()). Make the word and question disappear. The submit button appears
     let repIndex = 0;
-    
     const addAnswer = () => {
         let displayNum = repIndex + 1;
         //create variables for: new table row, value of input field, and the rep number.
         const answerRow = $('<tr>').addClass('table-row');
         const inputValue = $('#answer-field').val();
-        const repNum = $('<td>').addClass('rep').text(displayNum);
+        const repNum = $('<td>').addClass('rep').attr('id', 'rep' + displayNum).text(displayNum);
         //create the answer data cell. Add the input Value.
-        const answer = $('<td>').addClass('answer').text(inputValue);
+        const answer = $('<td>').addClass('answer').attr('id', ('answer' + displayNum)).text(inputValue);
         //Append the data cells to the row and the row to the table body.
         $(answerRow).append(repNum, answer);
         $('tbody').append(answerRow);
-
-        if (repIndex < 1) {
+        if (repIndex < 2) {
             //console.log("submit works");
-            allReps();
+            storeReps();
             clearText();
             repIndex++;
         } else {
-            //console.log("11th time");
-            //Repeat the actions above, but for the 10th answer. This avoids the problem of the last item not displaying.
-            allReps();
+            //For the 10th answer. This avoids the problem of the last item not displaying.
+            storeReps();
             repIndex++;
-            //Remove the answer section and add the "submit set" button via buildSetSubmit.
+            //Remove the answer section and add the "submit set" button.
             $('#answer-section').remove();
             buildSetSubmit();
         }
     }
-// create a function that holds all of the list items. By generating through the single lists items. STILL BUILDING
-//Basically, I need to get all of the list items into local storage. 
-//1st - Record the rep number and associate it with the value(answer). Include that in the local storage as "name" = repIndex(or whatever the variable is called.) You should then have an array of 10 objects. Get those Objects to display as a list or table or series of h tags
 
-    const allReps = () => {
-
-        const singleRep = () => {
-            //console.log("button works");
-            localStorage.setItem('set1-answers', $('.answer')[repIndex].innerHTML);
-            //console.log($('.answer')[0].innerHTML);
-            //storageCheck();
-            //console.log($('set1-answers')[0].innerHTML);
-
-        }
+    //Function that stores responses in local storage with "storageRep" # as their key.
+    let storageRep = 0;
+    const storeReps = () => {
+        localStorage.setItem(storageRep, $('.answer')[storageRep].innerHTML);
+        //console.log(localStorage.getItem(storageRep));
+        storageRep ++;
     }
 
-        //Create an array to hold all the answers to set one
-    //let setOne = [];
-    // const storageCheck = () => {
-    //     if(localStorage.getItem('set1-answers')) {
-    //         //console.log('set1-answers exists')
-    //         setOne.push(localStorage.getItem('set1-answers'));
+    //     const singleRep = () => {
+    //         localStorage.setItem('set1-answers', $('.answer')[repIndex].innerHTML);
+    //         //console.log($('set1-answers')[0].innerHTML);
     //     }
-    //     console.log(localStorage.getItem('set1-answers'));
     // }
 
+    //Clear text from the input field when called.
     const clearText= () => {
         $('#answer-field').val('');
     }
 
+    //Builds the submit button upon completion of the 10th response.
     const buildSetSubmit = () => {
         const setSubmitBtn = $('<button>');
         setSubmitBtn.attr('type', 'button');
@@ -112,7 +102,7 @@ $(() => {
 
     //create a variable for the Set One Modal and the exit button,
     const setOneModal = $('#save-modal');
-    const closeBtn = $('#exit');
+    //const closeBtn = $('#exit'); -- DON'T NEED?
     //create a function to show the modal
     const openModalOne = () => {
         setOneModal.show();
@@ -120,32 +110,40 @@ $(() => {
     
     //set event listener on the Submit button so it moves the answer to the list
     $('#submit').on('click', addAnswer);
+
+    //Function that hides the Question Page and Shows the Character Page when clicking the Modal's continue button.
+    const showCharPage = () => {
+        $('#question-page').hide();
+        $('#character-page').show();
+        setOneModal.hide();
+        revealCharList();
+    }
+    $('#continue').on('click', showCharPage);
+    
 //==========================================
 // CHARACTER PAGE
 //========================================
     //on page load append the set1-answers list to the h2 element.
-    const createLine = $('<li>').addClass('list-item');
-    const firstList = localStorage.getItem('set1-answers');
-    const addListText = $(createLine).text(firstList);
-    const attachList = $('#first-list').append(addListText);
-    //$('#list').on('load', attachList); 
-    //console.log(localStorage.getItem('set1-answers'));
+    
+    const revealCharList = () => {
+        //console.log("create list works");
+        for (let i=0; i<3; i++) {
+            let list = localStorage.getItem(i);
+            let createLine = $('<li>').addClass('list-item');
+            let addListText = $(createLine).text(list);
+            $('#char-list').append(addListText);
+            //console.log(list);
+        }
+    }
 
+    //SUBMIT BUTTON: Add listener to load description to localStorage. Open Modal2. Display char description in modal2. Congratulate them on creating a character. Provide a HOME button if they would like to create another one.
 
+    $('#char-submit').on('click', () => {
+        const boxText = $('#users-char').val();
+        localStorage.setItem('charDescription', boxText);
+        //open Modal 2
+        console.log(boxText);
+    })
 
-// //Experimenting with localStorage
-    // const arrSetOne = [];
-    // const addSet = () => {
-    //     //getData
-    //     //arrSetOne.push($('.rep').val());
-    //     arrSetOne.push($('.answer').val());
-    // }
-
-    // localStorage.setItem("", JSON.stringify(arrSetOne))
-
-
-
-     //Have a modal come up on Finish Set click
-     //Give modal two buttons one to save and continue. One to save and quit.
     
 });

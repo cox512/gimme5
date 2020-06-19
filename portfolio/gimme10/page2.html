@@ -9,49 +9,71 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div>
-        <h1 id="set-heading">First Set</h1>
-        <P id="directions">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat cumque, porro quisquam deleniti excepturi laboriosam dolores, vitae placeat sit suscipit maxime facere veniam eum, quasi nulla eligendi consectetur. Debitis, vel!</P>
-        <h3>Start Set</h3>
-        <button type="button" id="get-word">Go!</button>
+    <!-- ==========QUESTION PAGE=========== -->
+    <div id='question-page'>
+        <div id="question-head">
+            <h1 id="set-heading">First Set</h1>
+            <P id="directions">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat cumque, porro quisquam deleniti excepturi laboriosam dolores, vitae placeat sit suscipit maxime facere veniam eum, quasi nulla eligendi consectetur. Debitis, vel!</P>
+            <h3>Start Set</h3>
+            <button type="button" id="get-word">Go!</button>
         </div>
-    </header>
-    <main>
-        <div id="display">
-            <div id="display-word"></div>
-            <div id="help"></div>
-        </div>
-        <div id="question-field"></div>
+        <div id="question-main"></div>
+            <div id="display">
+                <div id="display-word"></div>
+                <div id="help"></div>
+            </div>
+            <div id="question-field"></div>
 
-        <div id="answer-section">
-            <textarea id="answer-field" rows="3" placeholder="type response here (max 70 chars)" maxlength="70"></textarea>
-            <button type="button" id="submit">SUBMIT</button>
+            <div id="answer-section">
+                <textarea id="answer-field" rows="3" placeholder="type response here (max 70 chars)" maxlength="70"></textarea>
+                <button type="button" id="submit">SUBMIT</button>
+            </div>
+            <div id="set-list">
+                <h4>Set List</h4>
+                    <table id="set-answers">
+                        <thead>
+                            <tr>
+                                <th id="rep-head">Rep #</th>
+                                <th id="response-head">Response</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+            </div>
         </div>
-        <div id="set-list">
-            <h4>Set List</h4>
-                <table id="set-answers">
-                    <thead>
-                        <tr>
-                            <th id="rep-head">Rep #</th>
-                            <th id="response-head">Response</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-        </div>
+        <!-- =========MODAL========== -->
 
         <div id="save-modal">
             <div id="save-modal-block">
                 <h2>Nice Work. Time to Save your progress.</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, laborum blanditiis eos laudantium vel ducimus possimus. Eligendi, nemo! Magnam quisquam ducimus fugiat ut adipisci nihil ipsa molestiae fuga. Similique, dolorem.</p>
                 <a id="exit" href="exit.html">Save & Exit</a>
-                <a id="continue" href="character.html">Save & Continue</a>
+                <button id="continue">Save & Continue</button>
             </div>
-    
         </div>
-    </main>
+
+        <!-- ========CHARACTER PAGE============== -->
+
+        <div id="character-page">
+            <div id="instructions">
+                <h1>It's Time to Build a Character</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, itaque obcaecati id cupiditate repudiandae sapiente sit dolores optio aliquid fugiat quaerat, deserunt, vel asperiores pariatur possimus facere illum sed commodi?</p>
+            </div>
+            <div id="list">
+                <h2>Character Notes</h2>
+                <ol id="char-list">
+    
+                </ol>
+                <!-- this is where the list will be inserted -->
+            </div>
+            <div id="describe-char">
+                <form>
+                <textarea id="users-char" rows="10" cols="50" placeholder="2000 characters max"></textarea></br>
+                <input type="submit" id="char-submit">
+                </form>
+            </div>
+        </div>
 
 </body>
 </html>

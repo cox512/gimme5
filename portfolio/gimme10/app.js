@@ -17,7 +17,7 @@ $(() => {
     //DISPLAY THE RANDOMLY GENERATED WORD ALONG WITH ITS DEFINITION (stretch goal -- display ALL the definitions that are also nouns.)
     const displayWord = () => {
         $.ajax(randomWord).then((response) => {
-            console.log(response);
+            //console.log(response);
             $("#display-word").html(`
             <h2> ${response.word} </h2>
             <h4> <i>${response.results[0].definition}</i> </h4>
@@ -41,55 +41,60 @@ $(() => {
         $('#set-list').show();
     })
 
-    let repNum = 0;
+    let repIndex = 0;
+    
     const addAnswer = () => {
-        if (repNum < 1) {
+        let displayNum = repIndex + 1;
+        //create variables for: new table row, value of input field, and the rep number.
+        const answerRow = $('<tr>').addClass('table-row');
+        const inputValue = $('#answer-field').val();
+        const repNum = $('<td>').addClass('rep').text(displayNum);
+        //create the answer data cell. Add the input Value.
+        const answer = $('<td>').addClass('answer').text(inputValue);
+        //Append the data cells to the row and the row to the table body.
+        $(answerRow).append(repNum, answer);
+        $('tbody').append(answerRow);
+
+        if (repIndex < 1) {
             //console.log("submit works");
-            //create variables for: new table row, value of input field, and the rep number.
-            const answerRow = $('<tr>').addClass('table-row');
-            const inputValue = $('#answer-field').val();
-            const repNumber = $('<td>').addClass('rep').text(repNum);
-            //create the answer data cell. Add the input Value.
-            const answer = $('<td>').addClass('answer').text(inputValue);
-            //Append the data cells to the row and the row to the table body.
-            $(answerRow).append(repNumber, answer);
-            $('tbody').append(answerRow);
-            storeRep();
+            allReps();
             clearText();
-            repNum++;
+            repIndex++;
         } else {
             //console.log("11th time");
-            //Repeat the actions above, but for the 10th answer. This avoids the "plus one" problem
-            const answerRow = $('<tr>').addClass('table-row');
-            const inputValue = $('#answer-field').val();
-            const repNumber = $('<td>').addClass('rep').text(repNum);
-            const answer = $('<td>').addClass('answer').text(inputValue);
-            $(answerRow).append(repNumber, answer);
-            $('tbody').append(answerRow);
-            storeRep();
-            repNum++;
-            //Remove the answer section and add a the "submit set" button via buildSetSubmit.
+            //Repeat the actions above, but for the 10th answer. This avoids the problem of the last item not displaying.
+            allReps();
+            repIndex++;
+            //Remove the answer section and add the "submit set" button via buildSetSubmit.
             $('#answer-section').remove();
             buildSetSubmit();
         }
     }
+// create a function that holds all of the list items. By generating through the single lists items. STILL BUILDING
+//Basically, I need to get all of the list items into local storage. 
+//1st - Record the rep number and associate it with the value(answer). Include that in the local storage as "name" = repIndex(or whatever the variable is called.) You should then have an array of 10 objects. Get those Objects to display as a list or table or series of h tags
 
-    const storeRep = () => {
-        //console.log("button works");
-        localStorage.setItem('set1-answers', $('.answer')[repNum].innerHTML);
-        //console.log($('.answer')[0].innerHTML);
-        storageCheck();
+    const allReps = () => {
+
+        const singleRep = () => {
+            //console.log("button works");
+            localStorage.setItem('set1-answers', $('.answer')[repIndex].innerHTML);
+            //console.log($('.answer')[0].innerHTML);
+            //storageCheck();
+            //console.log($('set1-answers')[0].innerHTML);
+
+        }
     }
 
         //Create an array to hold all the answers to set one
-    let setOne = [];
-    const storageCheck = () => {
-        if(localStorage.getItem('set1-answers')) {
-            //console.log('set1-answers exists')
-            setOne.push(localStorage.getItem('set1-answers'));
-        }
-        console.log(setOne);
-    }
+    //let setOne = [];
+    // const storageCheck = () => {
+    //     if(localStorage.getItem('set1-answers')) {
+    //         //console.log('set1-answers exists')
+    //         setOne.push(localStorage.getItem('set1-answers'));
+    //     }
+    //     console.log(localStorage.getItem('set1-answers'));
+    // }
 
     const clearText= () => {
         $('#answer-field').val('');
@@ -112,17 +117,23 @@ $(() => {
     const openModalOne = () => {
         setOneModal.show();
     }
-    // //create a function to close the modal
-    // const closeModalOne = () => {
-    //     setOneModal.hide();
-    // }
-    // //set the close modal event listener
-    // closeBtn.on('click', closeModalOne);
     
-    //set event listener on the Submit button so moves the answer to the list
+    //set event listener on the Submit button so it moves the answer to the list
     $('#submit').on('click', addAnswer);
+//==========================================
+// CHARACTER PAGE
+//========================================
+    //on page load append the set1-answers list to the h2 element.
+    const createLine = $('<li>').addClass('list-item');
+    const firstList = localStorage.getItem('set1-answers');
+    const addListText = $(createLine).text(firstList);
+    const attachList = $('#first-list').append(addListText);
+    //$('#list').on('load', attachList); 
+    //console.log(localStorage.getItem('set1-answers'));
 
-    // //Experimenting with localStorage
+
+
+// //Experimenting with localStorage
     // const arrSetOne = [];
     // const addSet = () => {
     //     //getData

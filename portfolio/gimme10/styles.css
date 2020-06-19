@@ -48,7 +48,7 @@ td {
     margin-bottom: 20px;
 }
 
-#save-modal {
+#save-modal, #modal-2 {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -59,11 +59,12 @@ td {
     display: none;
 }
 
-#save-modal-block {
+#save-modal-block, #modal-2-block {
     background-color: white;
-    height: 200px;
+    height: 400px;
     width: 70%;
     margin: 100px auto;
+    overflow: auto;
 }
 
 #character-page {

@@ -138,12 +138,30 @@ $(() => {
 
     //SUBMIT BUTTON: Add listener to load description to localStorage. Open Modal2. Display char description in modal2. Congratulate them on creating a character. Provide a HOME button if they would like to create another one.
 
-    $('#char-submit').on('click', () => {
+    //Store character description in local storage 
+    const storeCharDesc = () => {
         const boxText = $('#users-char').val();
         localStorage.setItem('charDescription', boxText);
-        //open Modal 2
-        console.log(boxText);
+        //console.log(boxText);
+    }
+
+    //Reveal character description in modal2
+    const revealCharDesc = () => {
+        let charDescription = localStorage.getItem('charDescription');
+        let createDisplay = $('<p>').attr('id', 'finalCharDesc');
+        let addCharDesc = $(createDisplay).text(charDescription);
+        $('#char-display-desc').append(addCharDesc);
+        console.log(charDescription);
+    }
+
+    //add listener to #char-submit button. Have it run storeCharDesc and open Modal2. 
+    $('#char-submit').on('click', (event) => {
+        event.preventDefault();
+        storeCharDesc();
+        revealCharDesc();
+        $('#modal-2').show();
     })
+//get modal2's formatting to center on page and darken out the background page
 
     
 });

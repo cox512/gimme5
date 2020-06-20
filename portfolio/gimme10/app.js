@@ -53,7 +53,7 @@ $(() => {
         if(!localStorage.getItem('proj1-name')) {
             alert("You don't currently have any active projects")
         } else {
-            // open page 2 with Proj1 information filled in
+            // Show Question Page with all of the information filled in.
             revealProject();
         }
     }
@@ -66,10 +66,6 @@ $(() => {
         $("#question-field").html(`
             <h4 class="question"> ${getQuestion} </h4>
         `);
-        // const newH4 = $('<h4>');
-        // $(newH4).attr('id', 'saved-question');
-        // $(newH4).text(getQuestion);
-        // $("#question-field").append($(newH4));
     }
 
     //GET THE OLD WORD AND DEFINITION
@@ -84,7 +80,6 @@ $(() => {
             `);
         }
     
-        //this was moved before break
     //create a variable for the Set One Modal and the exit button,
     const setOneModal = $('#save-modal');
     //create a function to show the modal
@@ -108,8 +103,7 @@ $(() => {
         $('#answer-section').show();
         $('#set-list').show();
         for (let i=0; localStorage.getItem('proj1-'+i); i++) {
-            console.log('starting fillForm');
-            //console.log('recognizes project exists')
+            //console.log('starting fillForm');
             let displayNum = i + 1;
             //create variables for: new table row, value of storage data, and the rep number.
             const answerRow = $('<tr>').addClass('table-row');
@@ -125,7 +119,7 @@ $(() => {
                 //Remove the answer section and add the "submit set" button.
                 $('#answer-section').remove();
                 buildSetSubmit();
-                console.log("running fillForm's if statement")
+                //console.log("running fillForm's if statement")
             }   
         }
     }
@@ -136,13 +130,14 @@ $(() => {
         displaySavedQuestion();
         displaySavedWord();
         fillForm();
+        $('#get-word').remove();
+
     }
 
     $('#continue-project').on('click', checkForProject);
 //==============Start Working Out With Gimme5 ==============
     //DISPLAY THE RANDOMLY GENERATED WORD ALONG WITH ITS DEFINITION 
-    // var word;
-    // var definition;
+    
     const pickWord = () => {
         $.ajax(randomWord).then((response) => {
         $("#display-word").html(`
@@ -190,8 +185,15 @@ $(() => {
     
 
     //Add the user's response to a list and store those responses in local storage (storeReps()). Make the word and question disappear. The submit button appears
-    let repIndex = 0;
+    //let repIndex = 0;
     const addAnswer = () => {
+        let repIndex=0;
+        while (localStorage.getItem('proj1-'+repIndex)) {
+            repIndex++
+            if (repIndex>5) {
+                return false;
+            }
+        }
         let displayNum = repIndex + 1;
         //create variables for: new table row, value of input field, and the rep number.
         const answerRow = $('<tr>').addClass('table-row');
@@ -218,11 +220,18 @@ $(() => {
     }
 
     //Function that stores responses in local storage with "storageRep" # as their key.
-    let storageRep = 0;
+    
     const storeReps = () => {
+        let storageRep=0;
+        while (localStorage.getItem('proj1-'+storageRep)) {
+            storageRep++
+            if (storageRep>5) {
+                return false;
+            }
+        }
         localStorage.setItem(('proj1-' + storageRep), $('.answer')[storageRep].innerHTML);
         //console.log(localStorage.getItem(storageRep));
-        storageRep ++;
+        //storageRep ++;
     }
 
     //Clear text from the input field when called.
@@ -238,7 +247,7 @@ $(() => {
         $('#question-page').hide();
         $('#character-page').show();
         setOneModal.hide();
-        revealCharList();
+        revealChar();
     }
     $('#continue').on('click', showCharPage);
     
@@ -248,7 +257,7 @@ $(() => {
 //========================================
     //on page load append the set1-answers list to the h2 element.
     
-    const revealCharList = () => {
+    const revealChar = () => {
         //console.log("create list works");
         for (let i=0; i<5; i++) {
             let list = localStorage.getItem('proj1-' + i);
@@ -257,9 +266,10 @@ $(() => {
             $('#char-list').append(addListText);
             //console.log(list);
         }
+        if (localStorage.getItem('proj1-charDescription')) {
+            $('#users-char').text(localStorage.getItem('proj1-charDescription'));
+        }
     }
-
-    //SUBMIT BUTTON: Add listener to load description to localStorage. Open Modal2. Display char description in modal2. Congratulate them on creating a character. Provide a HOME button if they would like to create another one.
 
     //Store character description in local storage 
     const storeCharDesc = () => {

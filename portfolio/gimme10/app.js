@@ -26,7 +26,7 @@ $(() => {
     }
     // Check to see if an old project exists. Give warning of erasure if it does.
     const projectCheck = () => {
-        if(localStorage.getItem('proj1-name')) {
+        if(localStorage.getItem('proj1-0')) {
             if (confirm("Creating a new project will erase your old project.")) {
     //erase all the old project data. Start new Project.
                 localStorage.clear();
@@ -50,7 +50,7 @@ $(() => {
   //Check localStorage for project information and load it into the answer sheet
     //Check to see if a project already exists
     const checkForProject = () => {
-        if(!localStorage.getItem('proj1-name')) {
+        if(!localStorage.getItem('proj1-0')) {
             alert("You don't currently have any active projects")
         } else {
             // Show Question Page with all of the information filled in.

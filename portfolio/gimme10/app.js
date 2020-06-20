@@ -21,57 +21,40 @@ $(() => {
         if(!$('#new-project').val()) {
             alert("You must create a name for your project");
         } else {
-            localStorage.setItem('proj1-name', $('#new-project').val())
             projectCheck();
         }
     }
     // Check to see if an old project exists. Give warning of erasure if it does.
     const projectCheck = () => {
-        if(localStorage.getItem('proj1-0')) {
+        if(localStorage.getItem('proj1-name')) {
             if (confirm("Creating a new project will erase your old project.")) {
-    //erase all the old project data
+    //erase all the old project data. Start new Project.
                 localStorage.clear();
-            }   
-        } 
-        startProject();
+                localStorage.setItem('proj1-name', $('#new-project').val())
+                startProject();
+            }
+        } else {
+            localStorage.setItem('proj1-name', $('#new-project').val())
+            startProject();
+        }
     }
         
-    //Tell the input button to open page 2
+    //Hide the Intro Page and show the Question Page
     const startProject = () => {
-        //HIDE THE INDEX PAGE, SHOW THE QUESTION
         $('#intro-page').hide();
         $('#question-page').show();
     }
-    
-// //Function that hides the Question Page and Shows the Character Page when clicking the Modal's continue button.
-// const showCharPage = () => {
-//     $('#question-page').hide();
-//     $('#character-page').show();
-//     setOneModal.hide();
-//     revealCharList();
-// }
-// $('#continue').on('click', showCharPage);
-
-    // const restartProject = () => {
-    //     startProject();
-    //     revealProject();
-    // }
 
     $('#name-submit').on('click', nameCheck);
 //================Return To Project Path=================
   //Check localStorage for project information and load it into the answer sheet
     //Check to see if a project already exists
     const checkForProject = () => {
-        //console.log('checkForProject starts')
-        if(!localStorage.getItem('proj1-0')) {
+        if(!localStorage.getItem('proj1-name')) {
             alert("You don't currently have any active projects")
         } else {
             // open page 2 with Proj1 information filled in
-            //console.log("check for project is in the else statement")
-            // $('.get-project').removeAttr('id');
-            // $('.get-project').attr('id', 'find-project');
             revealProject();
-            //revealProject();
         }
     }
     
@@ -146,16 +129,15 @@ $(() => {
             }   
         }
     }
+    
     const revealProject = () => {
         console.log("reveal Project works")
-        ls=localStorage;
-        window.location.href='page2.html';
+        startProject();
         displaySavedQuestion();
-            displaySavedWord();
-            fillForm();
+        displaySavedWord();
+        fillForm();
     }
-    //revealProject();
-    //$('#find-project').on('click', revealProject)
+
     $('#continue-project').on('click', checkForProject);
 //==============Start Working Out With Gimme5 ==============
     //DISPLAY THE RANDOMLY GENERATED WORD ALONG WITH ITS DEFINITION 

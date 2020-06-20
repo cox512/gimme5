@@ -67,7 +67,7 @@ td {
     overflow: auto;
 }
 
-#character-page {
+#character-page, #question-page {
     display: none;
 }
 

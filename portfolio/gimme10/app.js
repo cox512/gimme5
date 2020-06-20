@@ -14,13 +14,14 @@ $(() => {
         }
     }
 
-    //============PAGE ONE PROJECT CREATION/RETURN =======
+//============PAGE ONE PROJECT CREATION/ RETURN TO OLD PROJECT=======
     //=======New Project Path==============
     //Check for new project name in input field
     const nameCheck = () => {
         if(!$('#new-project').val()) {
             alert("You must create a name for your project");
         } else {
+            localStorage.setItem('proj1-name', $('#new-project').val())
             projectCheck();
         }
     }
@@ -30,49 +31,62 @@ $(() => {
             if (confirm("Creating a new project will erase your old project.")) {
     //erase all the old project data
                 localStorage.clear();
-                startNewProject();
-            }
+            }   
         } 
+        startProject();
     }
         
-
     //Tell the input button to open page 2
-    const openPage = () => {
-        window.open("page2.html");
-        //console.log('new page open')
+    const startProject = () => {
+        //HIDE THE INDEX PAGE, SHOW THE QUESTION
+        $('#intro-page').hide();
+        $('#question-page').show();
     }
+    
+// //Function that hides the Question Page and Shows the Character Page when clicking the Modal's continue button.
+// const showCharPage = () => {
+//     $('#question-page').hide();
+//     $('#character-page').show();
+//     setOneModal.hide();
+//     revealCharList();
+// }
+// $('#continue').on('click', showCharPage);
 
-    const startNewProject = () => {
-        openPage();
-    }
-    //console.log(proj1)
+    // const restartProject = () => {
+    //     startProject();
+    //     revealProject();
+    // }
 
     $('#name-submit').on('click', nameCheck);
 //================Return To Project Path=================
-    //Check localStorage for project information and load it into the answer sheet
+  //Check localStorage for project information and load it into the answer sheet
     //Check to see if a project already exists
     const checkForProject = () => {
+        //console.log('checkForProject starts')
         if(!localStorage.getItem('proj1-0')) {
             alert("You don't currently have any active projects")
         } else {
-            //open page 2 with Proj1 information filled in
-            openPage();
-            displayOldQuestion();
-            displayOldWord();
-            fillForm();
-            // if(localStorage.getItem('proj1-4')) {
-            //     $('#answer-section').remove();
-            // }
+            // open page 2 with Proj1 information filled in
+            //console.log("check for project is in the else statement")
+            // $('.get-project').removeAttr('id');
+            // $('.get-project').attr('id', 'find-project');
+            revealProject();
+            //revealProject();
         }
     }
     
     //Grabs the saved question and saves it to a variable.
     let getQuestion = localStorage.getItem('proj1-question');
     //Displays the saved question
-    const displayOldQuestion = () => {
+    const displaySavedQuestion = () => {
+        console.log("getQuestion= " + getQuestion);
         $("#question-field").html(`
             <h4 class="question"> ${getQuestion} </h4>
         `);
+        // const newH4 = $('<h4>');
+        // $(newH4).attr('id', 'saved-question');
+        // $(newH4).text(getQuestion);
+        // $("#question-field").append($(newH4));
     }
 
     //GET THE OLD WORD AND DEFINITION
@@ -80,12 +94,20 @@ $(() => {
     let getSavedWord = localStorage.getItem('proj1-word');
     let getSavedDefinition = localStorage.getItem('proj1-def');
     //Display saved word and definition
-    const displayOldWord = () => {
+    const displaySavedWord = () => {
         $("#display-word").html(`
             <h2> ${getSavedWord} </h2>
             <h4> <i>${getSavedDefinition}</i> </h4>
             `);
         }
+    
+        //this was moved before break
+    //create a variable for the Set One Modal and the exit button,
+    const setOneModal = $('#save-modal');
+    //create a function to show the modal
+    const openModalOne = () => {
+        setOneModal.show();
+    }
 
     //Builds the submit button upon completion of the 5th response.
     const buildSetSubmit = () => {
@@ -94,15 +116,16 @@ $(() => {
         setSubmitBtn.attr('id', 'submit-set');
         setSubmitBtn.text('Submit Set');
         $('#set-list').append(setSubmitBtn);
-       
+        //this was added before break
+        $('#submit-set').on('click', openModalOne);
     }
 
     //cycle through the project's local storage and load in saved answers
     const fillForm = () => {
-        console.log('starting fillForm');
         $('#answer-section').show();
         $('#set-list').show();
         for (let i=0; localStorage.getItem('proj1-'+i); i++) {
+            console.log('starting fillForm');
             //console.log('recognizes project exists')
             let displayNum = i + 1;
             //create variables for: new table row, value of storage data, and the rep number.
@@ -119,12 +142,20 @@ $(() => {
                 //Remove the answer section and add the "submit set" button.
                 $('#answer-section').remove();
                 buildSetSubmit();
+                console.log("running fillForm's if statement")
             }   
         }
     }
-    //JUST TESTING
-    checkForProject();
-
+    const revealProject = () => {
+        console.log("reveal Project works")
+        ls=localStorage;
+        window.location.href='page2.html';
+        displaySavedQuestion();
+            displaySavedWord();
+            fillForm();
+    }
+    //revealProject();
+    //$('#find-project').on('click', revealProject)
     $('#continue-project').on('click', checkForProject);
 //==============Start Working Out With Gimme5 ==============
     //DISPLAY THE RANDOMLY GENERATED WORD ALONG WITH ITS DEFINITION 
@@ -142,7 +173,7 @@ $(() => {
     }
 
     //Pick a random question from the roundOneQuestion array and display it.
-    var question;
+    let question;
     const pickQuestion = () => {
         let randomNumber = Math.floor((Math.random()) * roundOneQuestion.length);
         question = roundOneQuestion[randomNumber];
@@ -162,8 +193,19 @@ $(() => {
         pickWord();
         pickQuestion();
         $('#answer-section').show();
+        $('#answer-field').attr('required', 'true');
         $('#set-list').show();
     })
+
+    //Make answers submit upon hitting enter
+    const enterClick = $('#answer-field');
+    enterClick.on('keyup', (event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $('#submit').click();
+        }
+    })
+    
 
     //Add the user's response to a list and store those responses in local storage (storeReps()). Make the word and question disappear. The submit button appears
     let repIndex = 0;
@@ -201,24 +243,9 @@ $(() => {
         storageRep ++;
     }
 
-    //     const singleRep = () => {
-    //         localStorage.setItem('set1-answers', $('.answer')[repIndex].innerHTML);
-    //         //console.log($('set1-answers')[0].innerHTML);
-    //     }
-    // }
-
     //Clear text from the input field when called.
     const clearText= () => {
         $('#answer-field').val('');
-    }
-
-
-    //create a variable for the Set One Modal and the exit button,
-    const setOneModal = $('#save-modal');
-    //const closeBtn = $('#exit'); -- DON'T NEED?
-    //create a function to show the modal
-    const openModalOne = () => {
-        setOneModal.show();
     }
     
     //set event listener on the Submit button so it moves the answer to the list
@@ -232,7 +259,7 @@ $(() => {
         revealCharList();
     }
     $('#continue').on('click', showCharPage);
-    $('#submit-set').on('click', openModalOne);
+    
     
 //==========================================
 // CHARACTER PAGE

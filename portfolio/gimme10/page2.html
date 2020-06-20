@@ -15,7 +15,7 @@
             <h1 id="set-heading">First Set</h1>
             <P id="directions">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat cumque, porro quisquam deleniti excepturi laboriosam dolores, vitae placeat sit suscipit maxime facere veniam eum, quasi nulla eligendi consectetur. Debitis, vel!</P>
             <h3>Start Set</h3>
-            <button type="button" id="get-word">Go!</button>
+            <button type="button" class="get-project" id="get-word">Go!</button>
         </div>
         <div id="question-main"></div>
             <div id="display">
@@ -25,8 +25,10 @@
             <div id="question-field"></div>
 
             <div id="answer-section">
-                <textarea id="answer-field" rows="3" placeholder="type response here (max 70 chars)" maxlength="70"></textarea>
-                <button type="button" id="submit">SUBMIT</button>
+                <textarea id="answer-field" rows="3" maxlength="70" 
+                placeholder="Type your answer here. 70 chars. max." 
+                ></textarea>
+                <input type="submit" id="submit" value="SUBMIT">
             </div>
             <div id="set-list">
                 <h4>Set List</h4>
@@ -68,10 +70,8 @@
                 <!-- this is where the list will be inserted -->
             </div>
             <div id="describe-char">
-                <form>
-                <textarea id="users-char" rows="10" cols="30" placeholder="2000 characters max"></textarea><br>
+                <textarea id="users-char" rows="10" cols="30" placeholder="2000 characters max"  required></textarea><br>
                 <input type="submit" id="char-submit">
-                </form>
             </div>
         </div>
 

@@ -14,7 +14,6 @@ body {
     background: rgba(247, 244, 223, 1);
     border: 4px solid rgb(245, 229, 105);    
     box-shadow:inset 0 0 1px 1px gray;
-
 }
 
 #gimme5 {
@@ -78,10 +77,6 @@ h3, #get-word, #set-heading {
     margin: .7em auto;
 }
 
-input, #get-word {
-    box-shadow: 2px 2px gray;
-}
-
 #new-project {
     box-shadow:inset 0 0 1px 1px gray;
 }
@@ -130,6 +125,7 @@ input, #get-word {
 
 input[type=button], input[type=submit], button {
     background-color: rgb(245, 229, 105);
+    box-shadow: 2px 2px gray;
 }
 
 #submit-set {
@@ -137,7 +133,78 @@ input[type=button], input[type=submit], button {
     width: 50%;
 }
 
----------
+/* =============SAVE MODAL ============= */
+#save-modal, #modal-2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: none;
+}
+
+#save-modal-block, #modal-2-block {
+    background-color: white;
+    height: 300px;
+    width: 70%;
+    margin: 100px auto;
+    overflow: auto;
+    border: 4px solid rgb(245, 229, 105);    
+    box-shadow:inset 0 0 1px 1px gray;
+    padding: 1em;
+}
+
+#save-modal-block>p, #modal-2-block>p {
+    text-align: justify;
+}
+
+.modal-box {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+.modal-box>h1 {
+    font-family: 'Kaushan Script', cursive;
+    margin-top: 0px;
+}
+
+a:hover, input[type="button"], button {
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+
+}
+
+button {
+    text-decoration: none;
+}
+
+a {
+    background-color: rgb(245, 229, 105);
+    text-decoration: none;
+    color: black;
+    padding-bottom: 0px;
+    box-shadow: 2px 2px gray;
+    font-size: 13.3333px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.3em;
+}
+
+#exit, #continue {
+    width: 86px;
+    border: .13em solid rgb(0, 0, 0);
+
+
+}
+
+
+
 #answer {
     width: 70%;
 }
@@ -156,25 +223,6 @@ td {
 
 #set-answers {
     margin-bottom: 20px;
-}
-
-#save-modal, #modal-2 {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    display: none;
-}
-
-#save-modal-block, #modal-2-block {
-    background-color: white;
-    height: 400px;
-    width: 70%;
-    margin: 100px auto;
-    overflow: auto;
 }
 
 #character-page, #question-page {

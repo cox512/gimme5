@@ -141,8 +141,8 @@ $(() => {
     const pickWord = () => {
         $.ajax(randomWord).then((response) => {
         $("#display-word").html(`
-            <h2> ${response.word} </h2>
-            <h4> <i>${response.results[0].definition}</i> </h4>
+            <h2 id='word'> ${response.word} </h2>
+            <h4 id='definition'> <i>${response.results[0].definition}</i> </h4>
             `);
         localStorage.setItem('proj1-word', response.word);
         localStorage.setItem('proj1-def', response.results[0].definition);
@@ -159,7 +159,7 @@ $(() => {
 
     const displayQuestion = () => {
         $("#question-field").html(`
-            <h4 class="question"> ${question} </h4>
+            <h4 id="question"> ${question} </h4>
         `);
         //Save this question to Project One local storage        
         localStorage.setItem('proj1-question', question);

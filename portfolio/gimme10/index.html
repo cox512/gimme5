@@ -26,7 +26,7 @@
 
     <main id="page1-main">
         <div id="rules">
-            <h3 id="intro-heading">How it works</h3>
+            <h3 id="intro-how">How it works</h3>
             <div class="instructions">
                 <p><span class="initial-letter">I</span>f you're like most writers, your days are filled with work, school, family, and a million other obligations. It's hard to find enough time to work on a project that's truly your own. Gimme5 is a brainstorming tool for the writer on-the-go. Your writing workout can be stopped mid-stream and picked back up when you have a few more minutes to spare. It's perfect for those long bus rides to and from work.</p>
                 <p>Simply, create a new project and the app will generate a word for you, along with its definition and a question. Your job is to come up with five different answers to the question and build a character description using your answers for inspiration.</p>
@@ -65,18 +65,20 @@
                 <div id="question-field"></div>
             </div>
             <div id="answer-section">
-                <textarea id="answer-field" rows="3" maxlength="70" 
-                placeholder="Type your answer here. 70 chars. max." 
-                ></textarea>
-                <input type="submit" id="submit" value="SUBMIT">
+                <div id='answer-container'>
+                    <textarea id="answer-field" rows="3" maxlength="70" 
+                    placeholder="Type your answer here. 70 chars. max." 
+                    ></textarea>
+                    <input type="submit" id="submit" value="SUBMIT">
+                </div>
             </div>
             <div id="set-list">
-                <h4>Set List</h4>
+                <h4 id="answer-head">Set List</h4>
                     <table id="set-answers">
                         <thead>
                             <tr>
-                                <th id="rep-head">Rep #</th>
-                                <th id="response-head">Response</th>
+                                <th class="rep-response" id="rep-head">Rep #</th>
+                                <th class="rep-response" id="response-head">Response</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -35,7 +35,12 @@ body {
     font-style: italic;
 }
 
-#intro-head, .instructions, #display, #set-list, #char-list, #center-div {
+#intro-head, 
+.instructions, 
+#display, 
+#set-list, 
+#char-list, 
+#center-div {
     border: 2px solid  rgba(150, 188, 250, 1);
     margin: 20px;
     background-color: rgb(250, 250, 247);
@@ -46,11 +51,13 @@ body {
     font-size: 28px;
 }
 
-#tag-line, .rep-response{
+#tag-line, 
+.rep-response{
     font-size: 14px;
 }
 
-#intro-how, #set-heading {
+#intro-how, 
+#set-heading {
     text-transform: uppercase;
 }
 
@@ -71,11 +78,13 @@ body {
     text-align: center;
 }
 
-.intro-form, #intro-how {
+.intro-form, 
+#intro-how {
     margin: 1em auto;
 }
 
-#tag, #intro-outro {
+#tag, 
+#intro-outro {
     margin: .7em auto;
 }
 
@@ -113,11 +122,14 @@ h1 {
     padding-top: .5em;
 }
 
-.question, #definition, #word {
+.question, 
+#definition, 
+#word {
     margin: 5px auto;
 }
 
-#answer-section, #set-list {
+#answer-section, 
+#set-list {
     display: none;
 }
 
@@ -127,7 +139,8 @@ h1 {
     align-items: center;
 }
 
-#answer-field, #users-char {
+#answer-field, 
+#users-char {
     box-shadow: inset 0 0 2px 2px gray;
 }
 
@@ -164,7 +177,9 @@ td, .list-item {
     padding: 3px;
 }
 
-input[type=button], input[type=submit], button {
+input[type=button], 
+input[type=submit], 
+button {
     background-color: rgb(245, 229, 105);
     box-shadow: 2px 2px gray;
 }
@@ -176,7 +191,8 @@ input[type=button], input[type=submit], button {
 }
 
 /* =============SAVE MODAL ============= */
-#save-modal, #modal-2 {
+#save-modal, 
+#modal-2 {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -187,7 +203,8 @@ input[type=button], input[type=submit], button {
     display: none;
 }
 
-#save-modal-block, #modal-2-block {
+#save-modal-block, 
+#modal-2-block {
     background-color: white;
     height: 275px;
     width: 70%;
@@ -209,12 +226,16 @@ p {
     justify-content: center;
 }
 
-.modal-box>h1, #center-div>h1 {
+.modal-box>h1, 
+#center-div>h1 {
     font-family: 'Kaushan Script', cursive;
     margin: 0px auto;
 }
 
-a:hover, input[type="button"], button {
+a:hover, 
+input[type="button"],
+input[type="submit"], 
+button {
     cursor: pointer;
 }
 
@@ -239,7 +260,8 @@ button {
     line-height: 1.3em;
 }
 
-#exit, #continue {
+#exit, 
+#continue {
     width: 86px;
     border: .13em solid rgb(0, 0, 0);
     box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .5), inset -2px -2px 2px rgba(0, 0, 0, .5);
@@ -331,7 +353,8 @@ button {
     width: 70%;
 }
 
-#character-page, #question-page {
+#character-page, 
+#question-page {
     display: none;
 }
 
@@ -344,7 +367,8 @@ button {
         justify-content: center;
     }
 
-    #new-project, #set-answers {
+    #new-project, 
+    #set-answers {
         margin: 0 2em;
     }
 
@@ -381,43 +405,49 @@ button {
     #describe-char .inner-text{
         max-width: 50vw;
     }
-    
+
     #modal-2-block {
         overflow: auto;
     }
 
 /* Thanks to W3 Schools and CSS-Tricks for the tooltip tips  */
-.tooltip {
-    cursor: help;
-    position: relative;
-    border-bottom: 1px dotted rgb(27, 36, 52);
-}
+    .tooltip {
+        cursor: help;
+        position: relative;
+        border-bottom: 1px dotted rgb(27, 36, 52);
+    }
 
-.tooltip::before,
-.tooltip::after {
-    left: 50%;
-    opacity: 0;
-    position: absolute;
-    z-index: 0;
-}
+    .tooltip::before,
+    .tooltip::after {
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        z-index: 0;
+    }
 
-.tooltip:hover::before,
-.tooltip:hover::after
-{
-    opacity: 1;
-    z-index: 1;
-    transform: scale(1); 
-}
+    .tooltip:hover::before,
+    .tooltip:hover::after
+    {
+        opacity: 1;
+        z-index: 1;
+        transform: scale(1); 
+    }
 
-.tooltip::after {
-    background: black;
-    border-radius: 6px;
-    bottom: 120%;
-    color: rgba(247, 244, 223, 1);
-    content: attr(data-tip);
-    margin-left: -10em;
-    padding: 1em; 
-    width: 15em; 
-}
+    .tooltip::after {
+        background: black;
+        border-radius: 6px;
+        bottom: 120%;
+        color: rgba(247, 244, 223, 1);
+        content: attr(data-tip);
+        margin-left: -10em;
+        padding: 1em; 
+        width: 15em; 
+    }
 
+    input[type=button]:hover, 
+    input[type=submit]:hover, 
+    button:hover,
+    a:hover {
+        transform: scale(1.1);
+    }
 }

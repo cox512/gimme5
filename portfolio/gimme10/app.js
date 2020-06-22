@@ -53,7 +53,7 @@ $(() => {
         if(!localStorage.getItem('proj1-0')) {
             alert("You don't currently have any active projects")
         } else {
-            // Show Question Page with all of the information filled in.
+    // Show Question Page with all of the information filled in.
             revealProject();
         }
     }
@@ -62,7 +62,7 @@ $(() => {
     let getQuestion = localStorage.getItem('proj1-question');
     //Displays the saved question
     const displaySavedQuestion = () => {
-        console.log("getQuestion= " + getQuestion);
+        //console.log("getQuestion= " + getQuestion);
         $("#question-field").html(`
             <h4 class="question"> ${getQuestion} </h4>
         `);
@@ -78,6 +78,7 @@ $(() => {
             <h2> ${getSavedWord} </h2>
             <h4> <i>${getSavedDefinition}</i> </h4>
             `);
+        $('#display').show();
         }
     
     //create a variable for the Set One Modal and the exit button,
@@ -105,18 +106,18 @@ $(() => {
         for (let i=0; localStorage.getItem('proj1-'+i); i++) {
             //console.log('starting fillForm');
             let displayNum = i + 1;
-            //create variables for: new table row, value of storage data, and the rep number.
+        //create variables for: new table row, value of storage data, and the rep number.
             const answerRow = $('<tr>').addClass('table-row');
             const storageValue = localStorage.getItem('proj1-'+i);;
             const repNum = $('<td>').addClass('rep').attr('id', 'rep' + i).text(displayNum);
-            //create the answer data cell. Add the storage Value.
+        //create the answer data cell. Add the storage Value.
             const answer = $('<td>').addClass('answer').attr('id', ('answer' + i)).text(storageValue);
-            //Append the data cells to the row and the row to the table body.
+        //Append the data cells to the row and the row to the table body.
             $(answerRow).append(repNum, answer);
             $('tbody').append(answerRow);
             console.log(storageValue);
             if (i==4) {
-                //Remove the answer section and add the "submit set" button.
+        //Remove the answer section and add the "submit set" button.
                 $('#answer-section').remove();
                 buildSetSubmit();
                 //console.log("running fillForm's if statement")
@@ -125,13 +126,12 @@ $(() => {
     }
     
     const revealProject = () => {
-        console.log("reveal Project works")
+        // console.log("reveal Project works")
         startProject();
         displaySavedQuestion();
         displaySavedWord();
         fillForm();
         $('#get-word').remove();
-
     }
 
     $('#continue-project').on('click', checkForProject);
@@ -140,9 +140,10 @@ $(() => {
     
     const pickWord = () => {
         $.ajax(randomWord).then((response) => {
-        $("#display-word").html(`
-            <h2 id='word'> ${response.word} </h2>
-            <h4 id='definition'> <i>${response.results[0].definition}</i> </h4>
+            $('#display').show();
+            $("#display-word").html(`
+                <h2 id='word'> ${response.word} </h2>
+                <h4 id='definition'> <i>${response.results[0].definition}</i> </h4>
             `);
         localStorage.setItem('proj1-word', response.word);
         localStorage.setItem('proj1-def', response.results[0].definition);
@@ -161,7 +162,7 @@ $(() => {
         $("#question-field").html(`
             <h4 id="question"> ${question} </h4>
         `);
-        //Save this question to Project One local storage        
+    //Save this question to Project One local storage        
         localStorage.setItem('proj1-question', question);
     }
 
@@ -185,7 +186,6 @@ $(() => {
     
 
     //Add the user's response to a list and store those responses in local storage (storeReps()). Make the word and question disappear. The submit button appears
-    //let repIndex = 0;
     const addAnswer = () => {
         let repIndex=0;
         while (localStorage.getItem('proj1-'+repIndex)) {
@@ -195,13 +195,13 @@ $(() => {
             }
         }
         let displayNum = repIndex + 1;
-        //create variables for: new table row, value of input field, and the rep number.
+    //create variables for: new table row, value of input field, and the rep number.
         const answerRow = $('<tr>').addClass('table-row');
         const inputValue = $('#answer-field').val();
         const repNum = $('<td>').addClass('rep').attr('id', 'rep' + displayNum).text(displayNum);
-        //create the answer data cell. Add the input Value.
+    //create the answer data cell. Add the input Value.
         const answer = $('<td>').addClass('answer').attr('id', ('answer' + displayNum)).text(inputValue);
-        //Append the data cells to the row and the row to the table body.
+    //Append the data cells to the row and the row to the table body.
         $(answerRow).append(repNum, answer);
         $('tbody').append(answerRow);
         if (repIndex < 4) {
@@ -210,17 +210,16 @@ $(() => {
             clearText();
             repIndex++;
         } else {
-            //For the 10th answer. This avoids the problem of the last item not displaying.
+    //For the 5th answer. This avoids the problem of the last item not displaying.
             storeReps();
             repIndex++;
-            //Remove the answer section and add the "submit set" button.
+    //Remove the answer section and add the "submit set" button.
             $('#answer-section').remove();
             buildSetSubmit();
         }
     }
 
     //Function that stores responses in local storage with "storageRep" # as their key.
-    
     const storeReps = () => {
         let storageRep=0;
         while (localStorage.getItem('proj1-'+storageRep)) {
@@ -250,7 +249,6 @@ $(() => {
         revealChar();
     }
     $('#continue').on('click', showCharPage);
-    
     
 //==========================================
 // CHARACTER PAGE

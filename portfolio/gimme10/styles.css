@@ -6,24 +6,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center; 
-    /* height: 100%; */
 }
 /* =========Intro Heading ======== */
-#intro-page, #question-page, #goodbye-div {
+.inset-page {
     max-width: 90%;
     margin: 30px 0;
     background: rgba(247, 244, 223, 1);
     border: 4px solid rgb(245, 229, 105);    
-    /* box-shadow:inset 0 0 1px 1px gray; */
     box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .5), inset -2px -2px 2px rgba(0, 0, 0, .5);
 }
 
 #gimme5 {
     margin: 10px 0 5px 0;
+    font-size: 56px;
 }
 
 #tag-top {
-    margin: 5px 0;
+    margin: 5px 0 5px 0;
 }
 #tag-bottom {
     margin-top: 4px;
@@ -34,7 +33,7 @@ body {
     font-style: italic;
 }
 
-#intro-head, .instructions, #display, #set-list {
+#intro-head, .instructions, #display, #set-list, #char-list {
     border: 2px solid  rgba(150, 188, 250, 1);
     margin: 20px;
     background-color: rgb(250, 250, 247);
@@ -53,8 +52,7 @@ body {
     text-transform: uppercase;
 }
 
-#intro-how, 
-h3, #get-word, #set-heading {
+.handwriting {
     font-size: 24px;
     font-family: 'Kaushan Script', cursive;
 }
@@ -63,7 +61,6 @@ h3, #get-word, #set-heading {
     font-size: 20px;
 }
 .instructions {
-    text-align: justify;
     padding: 5px 15px;
 }
 
@@ -79,15 +76,29 @@ h3, #get-word, #set-heading {
     margin: .7em auto;
 }
 
+#form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
 #new-project {
     box-shadow:inset 0 0 1px 1px gray;
+    width: 30vw;
 }
 /* ================QUESTION PAGE=====================*/
-
+h1 {
+    font-size: 30px;
+}
 #display-word > h2 {
     text-decoration: underline;
 }
 
+#display {
+    padding: 0 15px;
+}
+#worry {
+    text-align: center;
+}
 #get-word {
     width: 33%;
 }
@@ -103,9 +114,16 @@ h3, #get-word, #set-heading {
     align-items: center;
 }
 
+#answer-field, #users-char {
+    box-shadow: inset 0 0 2px 2px gray;
+}
+
 #answer-field {
-    box-shadow: inset 0 0 1px 1px gray;
     margin-right: 5px;
+}
+
+td, .list-item {
+    text-align: left;
 }
 
 #submit, .rep {
@@ -162,19 +180,19 @@ input[type=button], input[type=submit], button {
     padding: 1em;
 }
 
-#save-modal-block>p, #modal-2-block>p {
+p {
     text-align: justify;
 }
 
 .modal-box {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
 
 }
 .modal-box>h1, #center-div>h1 {
     font-family: 'Kaushan Script', cursive;
     margin: 0px auto;
-
 }
 
 a:hover, input[type="button"], button {
@@ -185,7 +203,6 @@ a:hover, input[type="button"], button {
     display: flex;
     justify-content: space-around;
     margin-top: 5px;
-
 }
 
 button {
@@ -215,35 +232,50 @@ button {
     display: flex;
     align-content: center;
     justify-content: center;
-    height: 100vh
+    height: 100vh;
+    width: 90vw;
 }
 
 #goodbye-div {
     padding: 1.5em;
     margin: auto;
     height: 40vh;
+    width: 90vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #home {
-    /* width: 86px; */
     border: 1px solid rgb(0, 0, 0);
     box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .5), inset -2px -2px 2px rgba(0, 0, 0, .5);
     background-color: rgb(245, 229, 105);
     text-decoration: none;
     color: rgb(0, 0, 0);
     padding: 2px 20px;
-    /* box-shadow: 2px 2px gray; */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13.33px;
     line-height: 1.3em;
 }
 
+#encourage {
+    text-align: center;
+}
 
+/* ==============CHARACTER PAGE============== */
 
+#users-char {
+    width: 70vw;
+    padding: 1em;
+}
 
+#char-submit {
+    margin: 5px 0 10px 0;
+}
+
+#char-list {
+    padding: 15px 5px 15px 20px;
+}
 
 
 
@@ -258,11 +290,6 @@ button {
 #answer-section, #set-list {
     display: none;
 }
-
-td {
-    text-align: left;
-}
-
 
 #character-page, #question-page {
     display: none;

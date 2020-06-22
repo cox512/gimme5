@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- =================INTRO PAGE================== -->
-    <div id="intro-page">
+    <div class="inset-page" id="intro-page">
         <header id="intro-head">
             <div id="title">
                 <h1 id="gimme5">gimme5</h1>
@@ -26,21 +26,21 @@
 
     <main id="page1-main">
         <div id="rules">
-            <h3 id="intro-how">How it works</h3>
+            <h3 class="handwriting" id="intro-how">How it works</h3>
             <div class="instructions">
                 <p><span class="initial-letter">I</span>f you're like most writers, your days are filled with work, school, family, and a million other obligations. It's hard to find enough time to work on a project that's truly your own. Gimme5 is a brainstorming tool for the writer on-the-go. Your writing workout can be stopped mid-stream and picked back up when you have a few more minutes to spare. It's perfect for those long bus rides to and from work.</p>
-                <p>Simply, create a new project and the app will generate a word for you, along with its definition and a question. Your job is to come up with five different answers to the question and build a character description using your answers for inspiration.</p>
+                <p><span class="initial-letter">S</span>imply, create a new project and the app will generate a word for you, along with its definition and a question. Your job is to come up with five different answers to the question and build a character description using your answers for inspiration.</p>
                 <p id="intro-outro">So ... <span class="ital">whaddaya say?</span></p>
             </div>
               
             </div>
             <div id="start-div">
-                <h3 id='tag'>Are you ready to gimme5?</h3>
-                    <form class="intro-form" id="new-project-form">   
+                <h3 class="handwriting" id='tag'>Are you ready to gimme5?</h3>
+                    <div id="form-container">
                         <label for="new-project">New Project</label>
                         <input type="text" id="new-project" placeholder="project name" maxlength="15">
                         <input type="button" id="name-submit" value="Gimme5!">
-                    </form>
+                    </div>
                     <form 
                     class="intro-form" id="continue-project-form">
                         <input type="button" id="continue-project" value="Get Saved Project"> 
@@ -49,32 +49,31 @@
         </main>
     </div>
 <!-- ==========QUESTION PAGE=========== -->
-    <div id='question-page'>
+    <div class="inset-page" id='question-page'>
         <div id="question-head">
-            <h1 id="set-heading">First Set</h1>
             <div class="instructions">
+                <h1 class="handwriting" id="set-heading">First Set</h1>
                 <P><span class="initial-letter">F</span>or your first (and at this point, only) set, you will be given a word and its definition, followed by a character-based question to answer in relation to them. You need to come up with five responses before you can continue to the next round. Try to give your answers some thought. Avoid one or two word toss-off answers, you'll be thanking yourself later.</p> 
-                <p>Don't worry. You got this.</P>
+                <p id="worry">Don't worry. You got this.</P>
             </div>
             <button type="button" id="get-word">Start Set!</button>
         </div>
-        <div id="question-main">
-            <div id="display">
+        <div id="display">
                 <div id="display-word"></div>
                 <div id="help"></div>
                 <div id="question-field"></div>
-            </div>
-            <div id="answer-section">
+        </div>
+        <div id="answer-section">
                 <div id='answer-container'>
                     <textarea id="answer-field" rows="3" maxlength="70" 
                     placeholder="Type your answer here. 70 chars. max." 
                     ></textarea>
                     <input type="submit" id="submit" value="SUBMIT">
                 </div>
-            </div>
-            <div id="set-list">
-                <h4 id="answer-head">Set List</h4>
-                    <table id="set-answers">
+        </div>
+        <div id="set-list">
+            <h4 class="handwriting" id="answer-head">Set List</h4>
+                <table id="set-answers">
                         <thead>
                             <tr>
                                 <th class="rep-response" id="rep-head">Rep #</th>
@@ -83,16 +82,15 @@
                         </thead>
                         <tbody>
                         </tbody>
-                    </table>
-            </div>
+                </table>
         </div>
     </div>    
     <!-- =========MODAL ONE========== -->
 
     <div class="modal" id="save-modal">
         <div class="modal-box" id="save-modal-block">
-            <h1>Nice Work!</h1>
-                <p>You now have a list of five character profiles. Now it's time to use those profiles to develop a new character for your project. Click "continue" to move on to the next stage, or "exit" if you need to take a breather. Don't worry, your character info will be waiting for you when you return.</p>
+            <h1 class="handwriting">Nice Work!</h1>
+                <p><span class="initial-letter">Y</span>ou now have a list of five character profiles. Now it's time to use those profiles to develop a new character for your project. Click "continue" to move on to the next stage, or "exit" if you need to take a breather. Don't worry, your character info will be waiting for you when you return.</p>
             <div class="button-container">
                 <a id="exit" href="exit.html">Exit</a>
                 <button id="continue">Continue</button>
@@ -102,17 +100,16 @@
 
     <!-- ========CHARACTER PAGE============== -->
 
-    <div id="character-page">
-        <div id="instructions">
-            <h1>It's Time to Build a Character</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, itaque obcaecati id cupiditate repudiandae sapiente sit dolores optio aliquid fugiat quaerat, deserunt, vel asperiores pariatur possimus facere illum sed commodi?</p>
+    <div class="inset-page" id="character-page">
+        <div class="instructions">
+            <h1 class="handwriting">Let's Build a Character</h1>
+            <p><span class="initial-letter">U</span>se your thoughts below to come up with a description for a character. Go into the details of their upbringing and family, their work and personal life. What do they look like? How do they act when they think that no one's looking? You don't have to include all of your answers in creating your character. Just use them as a jumping off point!</p>
         </div>
         <div id="list">
-            <h2>Character Notes</h2>
+            <h2 class="handwriting">Character Notes</h2>
             <ol id="char-list">
 
             </ol>
-            <!-- this is where the list will be inserted -->
         </div>
         <div id="describe-char">
             <textarea id="users-char" rows="10" cols="30" placeholder="2000 characters max"  required></textarea><br>
@@ -125,7 +122,7 @@
         <div class="modal-box" id="modal-2-block">
             <div id="finish-msg">
                 <h2>Workout complete!</h2>
-                    <p>Nice job! You created the foundations for a new character! Where will they go? What will they do? Who will they take along for the ride? Play around with this new invention of yours. And don't forget to come back tomorrow to create them a new friend (<i>or enemy ...</i>)!</p>
+                    <p><span class="initial-letter">N</span>ice job! You created the foundations for a new character! Where will they go? What will they do? Play around with this new invention of yours. And don't forget to come back tomorrow to create them a new friend (<i>or enemy ...</i>)!</p>
                 <a id="finish" href="index.html">HOME</a>
             </div>
             <div id="char-display">

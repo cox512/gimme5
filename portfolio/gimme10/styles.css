@@ -314,6 +314,7 @@ button {
 #users-char {
     width: 70vw;
     padding: 1em;
+    font-size: 16px;
 }
 
 #char-submit {
@@ -361,6 +362,15 @@ button {
 /* =============MEDIA QUERIES=============== */
 
 @media (min-width: 768px) {
+
+    #gimme5 {
+        color: rgb(27, 36, 52);
+        -webkit-text-fill-color: rgba(150, 188, 250, 1); 
+
+        /* -webkit-text-fill-color: #f6f4e1;  */
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: rgb(27, 36, 52);
+    }
     
     #form-container {
         display: flex;
@@ -398,16 +408,18 @@ button {
         height: 100vh;
     }
 
-    .inset-page {
-        max-width: 70vw;
-    }
-
     #describe-char .inner-text{
         max-width: 50vw;
     }
 
     #modal-2-block {
         overflow: auto;
+    }
+
+    
+    .modal-box,
+    .inset-page {
+        max-width: 800px;
     }
 
 /* Thanks to W3 Schools and CSS-Tricks for the tooltip tips  */
@@ -450,4 +462,5 @@ button {
     a:hover {
         transform: scale(1.1);
     }
+
 }

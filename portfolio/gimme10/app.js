@@ -1,4 +1,4 @@
-const roundOneQuestion = ["Briefly describe a character who you associate with this word", "Name an occupation that you might associate with this word", "If this word were a character in a comicbook, what would be its defining flaw"]
+const roundOneQuestion = ["Describe a person who might use this word a lot.", "If this word were a person, what would its average day look like?", "If this word were a character in a comicbook, what would be its backstory?"]
 
 
 $(() => {
@@ -175,7 +175,7 @@ $(() => {
         $('#set-list').show();
     })
 
-    //Make answers submit upon hitting enter
+    //Make answers and project name submit upon hitting enter
     const enterClick = $('#answer-field');
     enterClick.on('keyup', (event) => {
         if (event.keyCode === 13) {
@@ -184,6 +184,13 @@ $(() => {
         }
     })
     
+    const projectClick = $('#new-project');
+    projectClick.on('keyup', (event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $('#name-submit').click();
+        }
+    })
 
     //Add the user's response to a list and store those responses in local storage (storeReps()). Make the word and question disappear. The submit button appears
     const addAnswer = () => {

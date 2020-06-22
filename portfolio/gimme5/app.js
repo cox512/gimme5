@@ -12,7 +12,7 @@ $(() => {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-            "x-rapidapi-key": mykey;
+            "x-rapidapi-key": mykey
         }
     }
 

@@ -3,6 +3,8 @@ const roundOneQuestion = ["Describe a person who might use this word a lot.", "I
 
 $(() => {
     //WORDSAPI SET-UP. CONTACT FOR WORD.
+    const mykey = config.MY_KEY;
+
     const randomWord = {
         "async": true,
         "crossDomain": true,
@@ -10,7 +12,7 @@ $(() => {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-            "x-rapidapi-key": "6bdd5dbc83mshd1a0b82422d6f4bp1fb182jsn320ccba670a2"
+            "x-rapidapi-key": mykey;
         }
     }
 

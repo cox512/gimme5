@@ -49,7 +49,7 @@ body {
 #tag-line, .rep-response{
     font-size: 14px;
 }
-/* ==============INTRO MAIN============ */
+
 #intro-how, #set-heading {
     text-transform: uppercase;
 }
@@ -62,6 +62,7 @@ body {
 .initial-letter {
     font-size: 20px;
 }
+
 .instructions {
     padding: 5px 15px;
 }
@@ -360,7 +361,6 @@ button {
         margin-top: 1.5em;
     }
 
-    /* FIX THE #FORM-CONTAINER ON INTRO PAGE. SMOOSH IT TOGETHER */
 }
 
 @media (min-width: 900px) {
@@ -373,6 +373,7 @@ button {
         background-size: cover;
         height: 100vh;
     }
+    
 
     .inset-page {
         max-width: 80vw;
@@ -384,4 +385,39 @@ button {
     #modal-2-block {
         overflow: auto;
     }
+
+/* Thanks to W3 Schools and CSS-Tricks for the tooltip tips  */
+.tooltip {
+    cursor: help;
+    position: relative;
+    border-bottom: 1px dotted rgb(27, 36, 52);
+}
+
+.tooltip::before,
+.tooltip::after {
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    z-index: 0;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after
+{
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1); 
+}
+
+.tooltip::after {
+    background: black;
+    border-radius: 6px;
+    bottom: 120%;
+    color: rgba(247, 244, 223, 1);
+    content: attr(data-tip);
+    margin-left: -10em;
+    padding: 1em; 
+    width: 15em; 
+}
+
 }

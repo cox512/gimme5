@@ -27,3 +27,6 @@ Another problem was local storage. I got it storing information easily enough, b
 
 That's it as far as the big problems. The styling needs to be entirely re-thought. Thematically I was trying to create a "workout" vibe for the app -- using "reps" and "sets" to refer to answers and questions. But visually it reads more like a Mother's Day card than it does a workout journal. I also wanted to create a feature where it "shouts" out encouragement as the user nears the end of each set -- something like "three more reps" or "almost there, power through". But I ran out of time. After seeing how the styling turned out, I think it would've just confused matters anyway.
 
+#**PROJECT LINK**
+
+https://cox512.github.io/portfolio/gimme5/index.html

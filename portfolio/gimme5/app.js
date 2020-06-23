@@ -3,8 +3,6 @@ const roundOneQuestion = ["Describe a person who might use this word a lot.", "I
 
 $(() => {
     //WORDSAPI SET-UP. CONTACT FOR WORD.
-    const mykey = config.MY_KEY;
-
     const randomWord = {
         "async": true,
         "crossDomain": true,
@@ -12,7 +10,7 @@ $(() => {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-            "x-rapidapi-key": mykey
+            "x-rapidapi-key": "6bdd5dbc83mshd1a0b82422d6f4bp1fb182jsn320ccba670a2"
         }
     }
 
@@ -117,7 +115,7 @@ $(() => {
         //Append the data cells to the row and the row to the table body.
             $(answerRow).append(repNum, answer);
             $('tbody').append(answerRow);
-            console.log(storageValue);
+            //console.log(storageValue);
             if (i==4) {
         //Remove the answer section and add the "submit set" button.
                 $('#answer-section').remove();
@@ -239,7 +237,6 @@ $(() => {
         }
         localStorage.setItem(('proj1-' + storageRep), $('.answer')[storageRep].innerHTML);
         //console.log(localStorage.getItem(storageRep));
-        //storageRep ++;
     }
 
     //Clear text from the input field when called.
@@ -291,7 +288,7 @@ $(() => {
         let createDisplay = $('<p>').attr('id', 'finalCharDesc');
         let addCharDesc = $(createDisplay).text(charDescription);
         $('#char-display-desc').append(addCharDesc);
-        console.log(charDescription);
+        //console.log(charDescription);
     }
 
     //add listener to #char-submit button. Have it run storeCharDesc and open Modal2. 

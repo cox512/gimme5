@@ -1,0 +1,466 @@
+body {
+    background-color: rgba(150, 188, 250, 1);
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    color: rgb(27, 36, 52);
+}
+/* =========Intro Heading ======== */
+.inset-page {
+    max-width: 90%;
+    margin: 30px 0;
+    background: rgba(247, 244, 223, 1);
+    border: 4px solid rgb(245, 229, 105);    
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .5), inset -2px -2px 2px rgba(0, 0, 0, .5);
+}
+
+#gimme5 {
+    margin: 10px 0 5px 0;
+    font-size: 56px;
+}
+
+#tag-top {
+    margin: 5px 0 5px 0;
+}
+
+#tag-bottom {
+    margin-top: 4px;
+    padding: 0;
+}
+
+.ital {
+    font-style: italic;
+}
+
+#intro-head, 
+.instructions, 
+#display, 
+#set-list, 
+#char-list, 
+#center-div {
+    border: 2px solid  rgba(150, 188, 250, 1);
+    margin: 20px;
+    background-color: rgb(250, 250, 247);
+    box-shadow: 2px 2px gray;
+}
+
+#title {
+    font-size: 28px;
+}
+
+#tag-line, 
+.rep-response{
+    font-size: 14px;
+}
+
+#intro-how, 
+#set-heading {
+    text-transform: uppercase;
+}
+
+.handwriting {
+    font-size: 24px;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.initial-letter {
+    font-size: 20px;
+}
+
+.instructions {
+    padding: 5px 15px;
+}
+
+#intro-outro {
+    text-align: center;
+}
+
+.intro-form, 
+#intro-how {
+    margin: 1em auto;
+}
+
+#tag, 
+#intro-outro {
+    margin: .7em auto;
+}
+
+#form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#new-project {
+    box-shadow:inset 0 0 1px 1px gray;
+    width: 30vw;
+}
+/* ================QUESTION PAGE=====================*/
+h1 {
+    font-size: 30px;
+}
+#display-word > h2 {
+    text-decoration: underline;
+}
+
+#display {
+    padding: 0 15px;
+    display: none;
+}
+#worry {
+    text-align: center;
+}
+#get-word {
+    width: 33%;
+    margin-bottom: 1em;
+}
+
+.question {
+    border-top: 2px solid rgba(150, 188, 250, 1);
+    padding-top: .5em;
+}
+
+.question, 
+#definition, 
+#word {
+    margin: 5px auto;
+}
+
+#answer-section, 
+#set-list {
+    display: none;
+}
+
+#answer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#answer-field, 
+#users-char {
+    box-shadow: inset 0 0 2px 2px gray;
+}
+
+#answer-field {
+    margin-right: 5px;
+}
+
+td, .list-item {
+    text-align: left;
+}
+
+#submit, .rep {
+    margin-left: 5px;
+}
+
+#answer-head {
+    margin: 5px auto;
+}
+
+.rep-response {
+    padding: 0;
+    border-bottom: 2px solid rgba(150, 188, 250, 1);    
+}
+
+#response-head {
+    width: 80%;
+}
+
+#set-answers {
+    margin: 10px;
+}
+
+.answer {
+    padding: 3px;
+}
+
+input[type=button], 
+input[type=submit], 
+button {
+    background-color: rgb(245, 229, 105);
+    box-shadow: 2px 2px gray;
+}
+
+#submit-set {
+    margin-bottom: 15px;
+    width: 30vw;
+    height: 1.5em;
+}
+
+/* =============SAVE MODAL ============= */
+#save-modal, 
+#modal-2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: none;
+}
+
+#save-modal-block, 
+#modal-2-block {
+    background-color: white;
+    height: 275px;
+    width: 70%;
+    margin: 100px auto;
+    overflow: auto;
+    border: 4px solid rgb(245, 229, 105);    
+    box-shadow:inset 0 0 1px 1px gray;
+    padding: 1em;
+}
+
+p {
+    text-align: justify;
+}
+
+.modal-box {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box>h1, 
+#center-div>h1 {
+    font-family: 'Kaushan Script', cursive;
+    margin: 0px auto;
+}
+
+a:hover, 
+input[type="button"],
+input[type="submit"], 
+button {
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5px;
+}
+
+button {
+    text-decoration: none;
+}
+
+#exit {
+    background-color: rgb(245, 229, 105);
+    text-decoration: none;
+    color: black;
+    padding-bottom: 0px;
+    /* box-shadow: 2px 2px gray; */
+    font-size: 13.3333px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.3em;
+}
+
+#exit, 
+#continue {
+    width: 86px;
+    border: .13em solid rgb(0, 0, 0);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .5), inset -2px -2px 2px rgba(0, 0, 0, .5);
+    margin: 0 1em;
+}
+
+/* ================EXIT SCREEN=========== */
+
+#goodbye-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    width: 90vw;
+}
+
+#goodbye-div {
+    padding: 1.5em;
+    margin: auto;
+    height: 40vh;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home {
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .5), inset -2px -2px 2px rgba(0, 0, 0, .5);
+    background-color: rgb(245, 229, 105);
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 2px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13.33px;
+    line-height: 1.3em;
+}
+
+#center-div {
+    padding: 3em 1em;
+    margin: 0;
+}
+
+#encourage {
+    text-align: center;
+}
+
+/* ==============CHARACTER PAGE============== */
+
+#users-char {
+    width: 70vw;
+    padding: 1em;
+    font-size: 16px;
+}
+
+#char-submit {
+    margin: 5px 0 15px 0;
+    width: 25%;
+    height: 1.5em;
+}
+
+#describe-char>textarea {
+    font-family: 'Kaushan Script', cursive;
+}
+
+#char-list {
+    padding: 15px 5px 15px 20px;
+}
+
+/* ===============MODAL 2=================== */
+
+#char-display-head {
+    text-decoration: underline;
+    margin: 1.1em auto 1em auto;
+}
+
+#modal-2-block {
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    height: 50vh;
+    
+}
+
+#finish-msg {
+    margin-top: 1em;
+}
+
+#answer {
+    width: 70%;
+}
+
+#character-page, 
+#question-page {
+    display: none;
+}
+
+/* =============MEDIA QUERIES=============== */
+
+@media (min-width: 768px) {
+
+    #gimme5 {
+        color: rgb(27, 36, 52);
+        -webkit-text-fill-color: rgba(150, 188, 250, 1); 
+
+        /* -webkit-text-fill-color: #f6f4e1;  */
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: rgb(27, 36, 52);
+    }
+    
+    #form-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #new-project, 
+    #set-answers {
+        margin: 0 2em;
+    }
+
+    #answer-field {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #char-list {
+        padding-left: 2em;
+    }
+
+    #submit-set {
+        margin-top: 1.5em;
+    }
+
+}
+
+@media (min-width: 900px) {
+    body {
+        background-image: linear-gradient(
+            rgba(150, 188, 250, .7),            
+            rgba(150, 188, 250, .7)
+          ), 
+            url("handwriting.jpg");
+        background-size: cover;
+        height: 100vh;
+    }
+
+    #describe-char .inner-text{
+        max-width: 50vw;
+    }
+
+    #modal-2-block {
+        overflow: auto;
+    }
+
+    
+    .modal-box,
+    .inset-page {
+        max-width: 800px;
+    }
+
+/* Thanks to W3 Schools and CSS-Tricks for the tooltip tips  */
+    .tooltip {
+        cursor: help;
+        position: relative;
+        border-bottom: 1px dotted rgb(27, 36, 52);
+    }
+
+    .tooltip::before,
+    .tooltip::after {
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        z-index: 0;
+    }
+
+    .tooltip:hover::before,
+    .tooltip:hover::after
+    {
+        opacity: 1;
+        z-index: 1;
+        transform: scale(1); 
+    }
+
+    .tooltip::after {
+        background: black;
+        border-radius: 6px;
+        bottom: 120%;
+        color: rgba(247, 244, 223, 1);
+        content: attr(data-tip);
+        margin-left: -10em;
+        padding: 1em; 
+        width: 15em; 
+    }
+
+    input[type=button]:hover, 
+    input[type=submit]:hover, 
+    button:hover,
+    a:hover {
+        transform: scale(1.1);
+    }
+
+}

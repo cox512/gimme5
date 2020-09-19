@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "#THE PITCH:  Gimme10 is an exercise app for writers who feel like they never have the time to get a new project off the ground. The app takes advantage of small periods of down time and prompts the user to begin flexing their creative thinking skills by having them brainstorm lists of ten (five, for demo purposes) responses to various questions generated around a single word. The user can then use these responses to create vibrant and wholly original works. Eventually, I want this app to work as a sort of Writing Workshop you can fit in your pocket -- a helping hand that the user can grasp as they work their way from a glimmer of inspiration to a full-fledged first draft. Right now it's but a whisper of that vision.",
   "main": "app.js",
-  "engines": { 
-    "node": "14.3.0"
-  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "node": "^14.11.0"

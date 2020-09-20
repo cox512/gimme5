@@ -12,6 +12,7 @@ Gimme10 is an exercise app for writers who feel like they never have the time to
 * JavaScript
 * API (WordsAPI to be specific -- *UPDATE: I wasn't happy with the words the API was generating so I added a noun and adjective libary to the program, itself. I got these libraries from http://www.ashley-bovan.co.uk. And they are spectacular!*)
 * Local Storage
+* Browserify
 
 **THE DETAILS**
 

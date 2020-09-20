@@ -1,5 +1,5 @@
 
-**#GIMME5#** (currently titled GIMME5)
+**GIMME5** (currently titled GIMME5)
 
 **THE PITCH:**
 
@@ -28,7 +28,8 @@ The final stage, for now, takes the user to a new page where they are provided a
 **UNSOLVED PROBLEMS**
 
 One current problem is the quality of the words that the API generates. I chose this API because it is capable of allowing random word generation AND has a great filtering capability so I could filter by parts of speech. I only wanted nouns because they are capable of prompting more visual imagery in the writing. However, the API generates a LOT of pronouns as well as some truly archaic words. I fear this will turn many users away.
-** *UPDATE: As noted above, I am no longer using this API and am instead relying on my own hard-coded word libraries.* **
+
+*UPDATE: As noted above, I am no longer using this API and am instead relying on my own hard-coded word libraries.*
 
 The styling needs to be entirely re-thought as well. My focus was on functionality. Thematically I was trying to create a "workout" vibe for the app -- using "reps" and "sets" to refer to answers and questions. But visually it reads more like a Mother's Day card than it does a workout journal. I also wanted to create a feature where it "shouts" out encouragement as the user nears the end of each set -- something like "three more reps" or "almost there, power through". But I ran out of time. After seeing how the styling turned out, I think it would've just confused matters.
 

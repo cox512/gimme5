@@ -29,4 +29,4 @@ That's it as far as the big problems. The styling needs to be entirely re-though
 
 #**PROJECT LINK**
 
-https://cox512.github.io/portfolio/gimme5/index.html
+https://cox512.github.io/gimme5/index.html

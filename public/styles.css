@@ -101,7 +101,7 @@ body {
 h1 {
     font-size: 30px;
 }
-#display-word > h2 {
+#display-phrase > h2 {
     text-decoration: underline;
 }
 
@@ -112,7 +112,7 @@ h1 {
 #worry {
     text-align: center;
 }
-#get-word {
+#get-phrase {
     width: 33%;
     margin-bottom: 1em;
 }
@@ -124,7 +124,7 @@ h1 {
 
 .question, 
 #definition, 
-#word {
+#phrase {
     margin: 5px auto;
 }
 
@@ -254,7 +254,6 @@ button {
     text-decoration: none;
     color: black;
     padding-bottom: 0px;
-    /* box-shadow: 2px 2px gray; */
     font-size: 13.3333px;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.3em;
@@ -366,8 +365,6 @@ button {
     #gimme5 {
         color: rgb(27, 36, 52);
         -webkit-text-fill-color: rgba(150, 188, 250, 1); 
-
-        /* -webkit-text-fill-color: #f6f4e1;  */
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: rgb(27, 36, 52);
     }
@@ -384,7 +381,7 @@ button {
 
     #answer-field {
         width: 100%;
-        max-width: 300px;
+        max-width: 500px;
     }
 
     #char-list {
@@ -416,7 +413,6 @@ button {
         overflow: auto;
     }
 
-    
     .modal-box,
     .inset-page {
         max-width: 800px;
@@ -462,5 +458,4 @@ button {
     a:hover {
         transform: scale(1.1);
     }
-
 }

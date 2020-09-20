@@ -1,21 +1,32 @@
+const $ = require("jquery");
+const nouns = require("./public/nouns.js");
+const adjectives = require("./public/adjectives.js");
+
 const roundOneQuestion = [
-  "Describe a person who might use this word a lot.",
-  "If this word were a person, what would its average day look like?",
-  "If this word were a character in a comicbook, what would be its backstory?",
+  "Describe a person who might use this phrase a lot.",
+  "If this phrase were a person, what would its average day look like?",
+  "If this phrase were a character in a comicbook, what would its backstory be?",
+  "Describe an occupation where this phrase might come up on a regular basis.",
+  "You're sitting in a movie theatre and the person behind you uses this phrase in a conversation. What do you imagine they look like?",
 ];
 
+const pickNoun = nouns[Math.floor(Math.random() * nouns.length)];
+const pickAdjective = adjectives[Math.floor(Math.random() * nouns.length)];
+const vowels = /[aeiou]/;
+
+const article = () => {
+  if (pickAdjective[0].match(vowels)) {
+    return "an";
+  } else {
+    return "a";
+  }
+};
+
+const createLine = () => {
+  return article() + " " + pickAdjective + " " + pickNoun;
+};
+
 $(() => {
-  const randomWord = {
-    async: true,
-    crossDomain: true,
-    url:
-      "https://wordsapiv1.p.rapidapi.com/words/?partOfSpeech=noun&lettersMax=7&hasDetails=synonyms,also&random=true",
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-      "x-rapidapi-key": API_KEY,
-    },
-  };
   //============PAGE ONE PROJECT CREATION/ RETURN TO OLD PROJECT=======
   //=======New Project Path==============
   //Check for new project name in input field
@@ -70,15 +81,13 @@ $(() => {
         `);
   };
 
-  //GET THE OLD WORD AND DEFINITION
-  //Assign the stored word and definition values to variables.
-  let getSavedWord = localStorage.getItem("proj1-word");
-  let getSavedDefinition = localStorage.getItem("proj1-def");
+  //GET THE OLD PHRASE
+  //Assign the stored phrase value to a variable.
+  let getSavedPhrase = localStorage.getItem("proj1-phrase");
   //Display saved word and definition
-  const displaySavedWord = () => {
-    $("#display-word").html(`
-            <h2> ${getSavedWord} </h2>
-            <h4> <i>${getSavedDefinition}</i> </h4>
+  const displaySavedPhrase = () => {
+    $("#display-phrase").html(`
+            <h2> ${getSavedPhrase} </h2>
             `);
     $("#display").show();
   };
@@ -97,7 +106,6 @@ $(() => {
     setSubmitBtn.attr("id", "submit-set");
     setSubmitBtn.text("Submit Set");
     $("#set-list").append(setSubmitBtn);
-    //this was added before break
     $("#submit-set").on("click", openModalOne);
   };
 
@@ -106,7 +114,6 @@ $(() => {
     $("#answer-section").show();
     $("#set-list").show();
     for (let i = 0; localStorage.getItem("proj1-" + i); i++) {
-      //console.log('starting fillForm');
       let displayNum = i + 1;
       //create variables for: new table row, value of storage data, and the rep number.
       const answerRow = $("<tr>").addClass("table-row");
@@ -123,39 +130,32 @@ $(() => {
       //Append the data cells to the row and the row to the table body.
       $(answerRow).append(repNum, answer);
       $("tbody").append(answerRow);
-      //console.log(storageValue);
       if (i == 4) {
         //Remove the answer section and add the "submit set" button.
         $("#answer-section").remove();
         buildSetSubmit();
-        //console.log("running fillForm's if statement")
       }
     }
   };
 
   const revealProject = () => {
-    // console.log("reveal Project works")
     startProject();
     displaySavedQuestion();
-    displaySavedWord();
+    displaySavedPhrase();
     fillForm();
-    $("#get-word").remove();
+    $("#get-phrase").remove();
   };
 
   $("#continue-project").on("click", checkForProject);
   //==============Start Working Out With Gimme5 ==============
-  //DISPLAY THE RANDOMLY GENERATED WORD ALONG WITH ITS DEFINITION
+  //DISPLAY THE RANDOMLY GENERATED LINE
 
-  const pickWord = () => {
-    $.ajax(randomWord).then((response) => {
-      $("#display").show();
-      $("#display-word").html(`
-                <h2 id='word'> ${response.word} </h2>
-                <h4 id='definition'> <i>${response.results[0].definition}</i> </h4>
+  const displayLine = () => {
+    $("#display").show();
+    $("#display-phrase").html(`
+                <h2 id='phrase'> ${createLine()} </h2>
             `);
-      localStorage.setItem("proj1-word", response.word);
-      localStorage.setItem("proj1-def", response.results[0].definition);
-    });
+    localStorage.setItem("proj1-phrase", createLine());
   };
 
   //Pick a random question from the roundOneQuestion array and display it.
@@ -175,8 +175,8 @@ $(() => {
   };
 
   //diplay the word and definition and pair it with a question.
-  const getWord = $("#get-word").on("click", () => {
-    pickWord();
+  const getPhrase = $("#get-phrase").on("click", () => {
+    displayLine();
     pickQuestion();
     $("#answer-section").show();
     $("#answer-field").attr("required", "true");
@@ -253,7 +253,6 @@ $(() => {
       "proj1-" + storageRep,
       $(".answer")[storageRep].innerHTML
     );
-    //console.log(localStorage.getItem(storageRep));
   };
 
   //Clear text from the input field when called.
@@ -279,13 +278,11 @@ $(() => {
   //on page load append the set1-answers list to the h2 element.
 
   const revealChar = () => {
-    //console.log("create list works");
     for (let i = 0; i < 5; i++) {
       let list = localStorage.getItem("proj1-" + i);
       let createLine = $("<li>").addClass("list-item");
       let addListText = $(createLine).text(list);
       $("#char-list").append(addListText);
-      //console.log(list);
     }
     if (localStorage.getItem("proj1-charDescription")) {
       $("#users-char").text(localStorage.getItem("proj1-charDescription"));
@@ -296,7 +293,6 @@ $(() => {
   const storeCharDesc = () => {
     const boxText = $("#users-char").val();
     localStorage.setItem("proj1-charDescription", boxText);
-    //console.log(boxText);
   };
 
   //Reveal character description in modal2
@@ -305,7 +301,6 @@ $(() => {
     let createDisplay = $("<p>").attr("id", "finalCharDesc");
     let addCharDesc = $(createDisplay).text(charDescription);
     $("#char-display-desc").append(addCharDesc);
-    //console.log(charDescription);
   };
 
   //add listener to #char-submit button. Have it run storeCharDesc and open Modal2.

@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/cox512/cox512.github.io#readme",
   "dependencies": {
+    "browserify-sign": "^4.2.1",
+    "elliptic": "^6.5.4",
     "jquery": "^3.5.1"
   },
   "devDependencies": {
     "browserify": "^16.5.2",
-    "watchify": "^3.11.1"
+    "watchify": "^4.0.0"
   }
 }

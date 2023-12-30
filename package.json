@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/cox512/cox512.github.io#readme",
   "dependencies": {
-    "browserify-sign": "^4.2.1",
+    "browserify-sign": "^4.2.2",
     "elliptic": "^6.5.4",
     "jquery": "^3.5.1"
   },
